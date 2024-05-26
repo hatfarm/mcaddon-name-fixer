@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinecraftAddonNameFixer", "MinecraftAddonNameFixer\MinecraftAddonNameFixer.csproj", "{A14FAA18-27F1-4DA2-B8CE-099BE0B8000E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinecraftAddonNameFixer.Cli", "MinecraftAddonNameFixer.Cli\MinecraftAddonNameFixer.Cli.csproj", "{83CBE0C2-675C-4EE0-A724-293AA17668B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A14FAA18-27F1-4DA2-B8CE-099BE0B8000E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A14FAA18-27F1-4DA2-B8CE-099BE0B8000E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A14FAA18-27F1-4DA2-B8CE-099BE0B8000E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A14FAA18-27F1-4DA2-B8CE-099BE0B8000E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83CBE0C2-675C-4EE0-A724-293AA17668B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83CBE0C2-675C-4EE0-A724-293AA17668B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83CBE0C2-675C-4EE0-A724-293AA17668B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83CBE0C2-675C-4EE0-A724-293AA17668B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99CBB3ED-0279-4606-8173-F18DB02D40A2}
+	EndGlobalSection
+EndGlobal
