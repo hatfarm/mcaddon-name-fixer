@@ -71,3 +71,5 @@ artifacts/
 *.pidb
 *.svclog
 *.scc
+
+.idea/

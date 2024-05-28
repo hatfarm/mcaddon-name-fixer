@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Load CSS in Flask with html -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <!-- Other head elements (meta tags, title, etc.) -->
+</head>
+<body>
+<div class="announcement-bar" id="announcement">Download complete!</div>
+<style>
+    /* Style for the loading spinner */
+    .spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left: 4px solid #3498db; /* Change color as needed */
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+<h2>Upload File to Clean</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+  Select file to upload:<br />
+  <input type="file" name="file" id="file" class="file-selector"><br />
+  <input type="submit" value="Upload" name="submit" id="upload-button" disabled>
+  <span class="spinner" id="loading-spinner" style="display: none"></span> <!-- Add the id attribute -->
+</form>
+
+<h2>Cleaned Files</h2>
+<ul>
+{% for file in files %}
+  <li><a href="{{ url_for('download_file', filename=file) }}">{{ file }}</a></li>
+{% endfor %}
+</ul>
+<script>
+    function refreshCleanedFiles() {
+    fetch('/get_cleaned_files')
+        .then(response => response.json())
+        .then(data => {
+            const fileList = document.querySelector('ul');
+            fileList.innerHTML = ''; // Clear the current list
+            for (const file of data.files) {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = "{{ url_for('download_file', filename=" + file + ") }}";
+                link.textContent = file;
+                listItem.appendChild(link);
+                fileList.appendChild(listItem);
+            }
+        });
+}
+
+// Refresh the list every 5 seconds (adjust as needed)
+setInterval(refreshCleanedFiles, 5000);
+</script>
+<script>
+    document.querySelector('form').addEventListener('submit', async function (event) {
+        // Show the spinner when the form is submitted
+        document.querySelector('#loading-spinner').style.display = 'inline-block';
+
+        // Submit the form using fetch or any other method
+        try {
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: new FormData(this), // Use the form data
+            });
+
+            if (response.ok) {
+                // Hide the spinner on successful upload
+                document.querySelector('#loading-spinner').style.display = 'none';
+                // Show the announcement bar
+                const announcementBar = document.querySelector('#announcement');
+                announcementBar.style.display = 'block';
+
+                // Hide the announcement bar after 3 seconds (adjust as needed)
+                setTimeout(() => {
+                    announcementBar.style.display = 'none';
+                }, 3000); // 3 seconds
+            } else {
+                // Handle errors if needed
+                console.error('Error uploading file:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error uploading file:', error);
+        }
+    });
+
+    document.querySelector('input[type="file"]').addEventListener('change', function (event) {
+    const uploadButton = document.querySelector('#upload-button');
+    if (event.target.files.length > 0) {
+        // Add the 'selected' class when a file is selected
+        event.target.classList.add('selected');
+        uploadButton.disabled = false;
+    } else {
+        // Remove the 'selected' class when the file selection is cleared
+        event.target.classList.remove('selected');
+        uploadButton.disabled = true;
+    }
+});
+</script>
+</body>
+</html>

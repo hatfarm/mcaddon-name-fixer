@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #343a40;
+    color: #f8f9fa;
+}
+
+h2 {
+    color: #f8f9fa;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+form {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #495057;
+    border-radius: .25rem;
+    background-color: #495057;
+}
+
+input[type="file"] {
+    margin-top: .5rem;
+    color: #fff;
+    background-color: #CC5500;
+    border-color: #CC5500;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    cursor: pointer;
+    width: 40rem;
+}
+
+input[type="file"].selected {
+    background-color: #68855c; /* This is a muted green color */
+    border-color: #68855c; /* This is a muted green color */
+}
+
+input[type="submit"] {
+    margin-top: .5rem;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    cursor: pointer;
+}
+
+input[type="submit"]:disabled {
+    background-color: #868e96; /* This is a gray color */
+    border-color: #868e96; /* This is a gray color */
+    cursor: not-allowed;
+}
+
+.spinner {
+    margin-left: .5rem;
+    vertical-align: middle;
+}
+
+.announcement-bar {
+    background-color: #28a745;
+    color: #fff;
+    padding: .75rem 1.25rem;
+    text-align: center;
+    display: none;
+}
+
+/* Announcement bar styles */
+.announcement-bar {
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    display: none;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 20px; /* Add slight indentation */
+}
+
+li::before {
+    content: "\2022"; /* Unicode bullet character (•) */
+    color: #0074D9; /* Customize the bullet color */
+    margin-right: 10px;
+}
+
+li a {
+    color: #17a2b8;
+    text-decoration: none;
+    padding: .5rem 0;
+}
