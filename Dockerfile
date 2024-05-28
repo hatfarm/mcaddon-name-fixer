@@ -41,11 +41,11 @@ RUN dotnet build --configuration Release
 # This was used to figure out exactly where the build output goes :D
 # RUN find "$PWD" -type f > ../uploads/cleaned/stuff.txt
 
-RUN chmod +x /app/MinecraftAddonNameFixer/MinecraftAddonNameFixer.Cli/obj/Release/net8.0/MinecraftAddonNameFixer.Cli.dll
+RUN chmod +x /app/MinecraftAddonNameFixer/MinecraftAddonNameFixer.Cli/bin/Release/net8.0/MinecraftAddonNameFixer.Cli.dll
 
 
 # Set environment variables
-ENV NAME_FIXER_CLI_PATH=/app/MinecraftAddonNameFixer/MinecraftAddonNameFixer.Cli/obj/Release/net8.0/MinecraftAddonNameFixer.Cli.dll
+ENV NAME_FIXER_CLI_PATH=/app/MinecraftAddonNameFixer/MinecraftAddonNameFixer.Cli/bin/Release/net8.0/MinecraftAddonNameFixer.Cli.dll
 ENV UPLOAD_FOLDER=/app/uploads
 
 # Set the command to run your Flask app (adjust as needed)
